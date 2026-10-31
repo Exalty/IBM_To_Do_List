@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+    <header class="app-header">
+      <div class="header-inner">
+        <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <h1>My To-Do List</h1>
+      </div>
+      <p class="header-sub">Kelola tugas harianmu dengan mudah</p>
+    </header>
+
+    <main class="app-main">
+      <!-- Input Area -->
+      <div class="input-card">
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="Tambah tugas baru..."
+          maxlength="120"
+        />
+        <button id="addBtn" class="btn-add" onclick="addTask()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Tambah
+        </button>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="tab active" id="tab-all" onclick="setFilter('all')">Semua</button>
+        <button class="tab" id="tab-active" onclick="setFilter('active')">Aktif</button>
+        <button class="tab" id="tab-done" onclick="setFilter('done')">Selesai</button>
+      </div>
+
+      <!-- Task Stats -->
+      <div class="stats-bar">
+        <span id="statsText">0 tugas</span>
+        <button class="btn-clear" id="clearBtn" onclick="clearDone()">Hapus Selesai</button>
+      </div>
+
+      <!-- Task List -->
+      <ul class="task-list" id="taskList">
+        <!-- tasks rendered here -->
+      </ul>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" stroke="#c7ddf7" stroke-width="2.5"/>
+          <path d="M20 32h24M20 22h24M20 42h16" stroke="#93bfef" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <p>Belum ada tugas di sini.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
